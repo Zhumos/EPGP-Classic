@@ -20,6 +20,9 @@ local profileDefault = {
   ilvlDenominator = 10,
   legendaryScale = 3,
 
+  thresholdIlvl = 0,
+  thresholdScale = 100,
+
   headScale1 = 1,
   headComment1 = _G.INVTYPE_HEAD,
 
@@ -213,6 +216,36 @@ mod.optionsArgs = {
       },
       recommend = HelpPlate(RecommendParamsString(), 6)
     },
+  },
+  headerThresholdedFlatScaling = {
+    order = 15,
+    type = "header",
+    name = L["Thresholded Flat Scaling"],
+  },
+  thresholdSettings = {
+    order = 16,
+    type = "group",
+    inline = true,
+    name = "",
+    args = {
+      thresholdHelp = HelpPlate(L["Set an item level threshold and a scale. All items with an item level below this threshold will have this scaling applied after all others."]),
+      thresholdIlvl = {
+        order = 2,
+        type = "range",
+        name = L["Item level threshold"],
+        min = 0,
+        max = 100,
+        step = 1
+      },
+      thresholdScale = {
+        order = 3,
+        type = "range",
+        name = L["Threshold Scale"],
+        min = 0,
+        max = 1,
+        step = 0.01
+      }
+    }
   },
 
   headerSlots = {
@@ -585,6 +618,9 @@ local profileOOR = {
   standardIlvl = 66,
   ilvlDenominator = 10,
   legendaryScale = 3,
+
+  thresholdIlvl = 0,
+  thresholdScale = 100,
 
   headScale1 = 1,
   headComment1 = _G.INVTYPE_HEAD,
